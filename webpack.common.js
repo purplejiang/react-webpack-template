@@ -21,12 +21,13 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
+        test: /\.(css|less)$/,
         sideEffects: true,
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader'
+          'postcss-loader',
+          'less-loader'
         ]
       },
       {
@@ -36,25 +37,25 @@ module.exports = {
       }
     ]
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'async',
-  //     minSize: 30000,
-  //     minChunks: 1,
-  //     maxAsyncRequests: 5,
-  //     maxInitialRequests: 3,
-  //     name: false,
-  //     cacheGroups: {
-  //       styles: {
-  //         name: 'styles',
-  //         test: /\.css$/,
-  //         chunks: 'all',
-  //         reuseExistingChunk: true,
-  //         enforce: true
-  //       }
-  //     }
-  //   }
-  // },
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: false,
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          reuseExistingChunk: true,
+          enforce: true
+        }
+      }
+    }
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {

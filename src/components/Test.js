@@ -13,12 +13,17 @@ class Test extends Component {
     const b = cloneDeep(data);
     console.log(b);
     console.log(moment().format('YYYY-MM-DD HH:mm:ss'));
+    this.itemClick('1', '2', '3', '4', '5', '6');
   }
+  itemClick = (a, b, c, d, e) => {
+    console.log(a, b, c, d, e);
+  };
   handleClick = () => {
     console.log(222);
   };
   render() {
     console.log(this.props);
+    console.log('1111', '555', '3333');
     return (
       <div className="test">
         test
