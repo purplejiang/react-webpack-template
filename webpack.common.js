@@ -31,9 +31,14 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         include: path.resolve(__dirname, 'src'),
         use: ['url-loader?limit=8192&name=assets/[name].[ext]']
+      },
+      {
+        test: /\.(eot|woff|ttf|woff2)(\?|$)/,
+        include: path.resolve(__dirname, 'src'),
+        use: ['file-loader?name=assets/[name].[ext]']
       }
     ]
   },

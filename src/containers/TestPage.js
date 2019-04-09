@@ -1,7 +1,7 @@
 import React from 'react';
 import Test from 'components/Test';
 
-const TestPage = props => {
+const TestPage = () => {
   // console.log(props);
   return (
     <div>

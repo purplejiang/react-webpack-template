@@ -15,6 +15,7 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   plugins: ['react'],
   rules: {
+    'no-useless-escape': 0,
     'arrow-parens': 0,
     // 'linebreak-style': ['error', 'unix'],
     // 允许async-await

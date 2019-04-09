@@ -45,6 +45,7 @@ class Test extends Component {
         <Icon type="windows" />
         <DatePicker />
         <img src={require('../static/avatar.jpg')} />
+        <img src={require('../static/more-blue.svg')} />
       </div>
     );
   }

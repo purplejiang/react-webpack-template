@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { setConfig } from 'react-hot-loader';
+// import { setConfig } from 'react-hot-loader';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
