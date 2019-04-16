@@ -15,3 +15,23 @@
   ]
 }
 ```
+
+es6 强大的 async 异步函数配合 await,结果会发现直接报错
+
+```
+Uncaught ReferenceError: regeneratorRuntime is not defined
+```
+
+解决，安装 @babel/plugin-transform-runtime
+
+.babelrc
+
+```
+{
+  "plugins": [
+    ...
+    "@babel/plugin-transform-runtime",
+    ...
+  ]
+}
+```

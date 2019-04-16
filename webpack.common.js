@@ -65,7 +65,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
-      containers: path.resolve(__dirname, 'src/containers')
+      containers: path.resolve(__dirname, 'src/containers'),
+      api: path.resolve(__dirname, 'src/api')
     }
   },
   plugins: [
