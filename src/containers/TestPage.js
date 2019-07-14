@@ -1,16 +1,18 @@
 import React from 'react';
-import Test from 'components/Test';
-import Counter from 'components/Counter';
-import GetData from 'components/GetData';
+// import Test from 'components/Test';
+// import Counter from 'components/Counter';
+// import GetData from 'components/GetData';
+import Event from 'components/hook-test/event';
 
 const TestPage = () => {
   // console.log(props);
   return (
     <div>
-      tesssssttt
+      <Event />
+      {/* tesssssttt
       <Counter />
       <GetData />
-      <Test />
+      <Test /> */}
     </div>
   );
 };
