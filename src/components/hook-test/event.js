@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { useEventListener } from '../../hook/useEventListener';
+import { useEventListener } from '../hooks/useEventListener';
 
 const Event = () => {
   const [location, setLocation] = useState({ x: 0, y: 0 });

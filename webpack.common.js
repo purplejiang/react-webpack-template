@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: { index: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -27,7 +27,12 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { importLoaders: 1 } },
           'postcss-loader',
-          'less-loader'
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
         ]
       },
       {
@@ -42,21 +47,43 @@ module.exports = {
       }
     ]
   },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'async',
+  //     minSize: 30000,
+  //     minChunks: 1,
+  //     maxAsyncRequests: 5,
+  //     maxInitialRequests: 3,
+  //     name: false,
+  //     cacheGroups: {
+  //       styles: {
+  //         name: 'styles',
+  //         test: /\.css$/,
+  //         chunks: 'all',
+  //         reuseExistingChunk: true,
+  //         enforce: true
+  //       }
+  //     }
+  //   }
+  // },
   optimization: {
+    // minimize: env === 'production' ? true : false, //是否进行代码压缩
     splitChunks: {
-      chunks: 'async',
-      minSize: 30000,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      name: false,
+      chunks: 'all',
+      minSize: 30000, //模块大于30k会被抽离到公共模块
+      minChunks: 1, //模块出现1次就会被抽离到公共模块
+      maxAsyncRequests: 5, //异步模块，一次最多只能被加载5个
+      maxInitialRequests: 3, //入口模块最多只能加载3个
+      name: true,
       cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          reuseExistingChunk: true,
-          enforce: true
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
         }
       }
     }
@@ -66,7 +93,8 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       containers: path.resolve(__dirname, 'src/containers'),
-      api: path.resolve(__dirname, 'src/api')
+      api: path.resolve(__dirname, 'src/api'),
+      actions: path.resolve(__dirname, 'src/store/actions')
     }
   },
   plugins: [

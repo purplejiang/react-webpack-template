@@ -12,8 +12,13 @@ module.exports = {
     node: true,
     es6: true
   },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks'],
   rules: {
     'no-useless-escape': 0,
     'arrow-parens': 0,
@@ -38,6 +43,8 @@ module.exports = {
     'max-statements': [2, 50],
     // react配置
     'react/prop-types': 0,
-    'react/no-unescaped-entities': 0
+    'react/no-unescaped-entities': 0,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   }
 };

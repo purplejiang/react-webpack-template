@@ -39,6 +39,8 @@
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "autoprefixer": "^9.5.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -72,12 +74,12 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -e $GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $GIT_PARAMS"
     }
   },
   "lint-staged": {
-    "*.{js,vue}": "lint"
+    "*.{js,jsx}": "eslint --ext .js,.jsx src"
   },
   "browserslist": [
     "iOS >= 8",
