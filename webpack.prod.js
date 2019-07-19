@@ -19,7 +19,10 @@ module.exports = merge(common, {
         parallel: true,
         sourceMap: true,
         terserOptions: {
-          warnings: false
+          warnings: false,
+          drop_console: true,
+          drop_debugger: true,
+          pure_funcs: ['console.log']
         }
       }),
       //压缩css
