@@ -36,6 +36,18 @@ module.exports = {
         ]
       },
       {
+        test: /\.(scss)$/,
+        sideEffects: true,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+          {
+            loader: 'sass-loader'
+          }
+        ]
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         include: path.resolve(__dirname, 'src'),
         use: ['url-loader?limit=8192&name=assets/[name].[ext]']
